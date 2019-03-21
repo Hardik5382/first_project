@@ -1,6 +1,8 @@
 
 package hardik.invesmenthandle.com;
 
+import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -18,6 +20,8 @@ public class policyActivity extends AppCompatActivity {
     Button btnsave;
     Button btnview;
     Button btnUpdate;
+    private Context context;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +39,8 @@ public class policyActivity extends AppCompatActivity {
         btnUpdate = findViewById(R.id.Update);
         btnsave();
         btnview();
+
+        context = this;
     }
 
     private void btnsave() {
@@ -62,25 +68,9 @@ public class policyActivity extends AppCompatActivity {
         btnview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Cursor result = myDB.getAllData();
-                if (result.getCount() == 0 ){
-                    //show message
-                    showMessage("ERROR","NO DATA FOUND");
-                    return;
-                }
-                StringBuilder buffer = new StringBuilder();
-                while (result.moveToNext()){
-                    buffer.append("PNO :").append(result.getString(0)).append("\n");
-                    buffer.append("POLICY_NAME :").append(result.getString(1)).append("\n");
-                    buffer.append("PLAN_NO :").append(result.getString(2)).append("\n");
-                    buffer.append("PLAN_NAME :").append(result.getString(3)).append("\n");
-                    buffer.append("SUM_ASSURED :").append(result.getString(4)).append("\n");
-                    buffer.append("PREMIUM_AMOUNT :").append(result.getString(5)).append("\n");
-                    buffer.append("YEARS :").append(result.getString(6)).append("\n\n");
 
-                }
-                //show all
-                showMessage("Data",buffer.toString());
+                Intent i = new Intent(context,SavedPolicyList.class);
+                context.startActivity(i);
             }
         });
     }

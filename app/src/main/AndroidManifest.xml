@@ -5,28 +5,29 @@
 
     <application
         android:allowBackup="true"
+        android:fullBackupContent="@xml/backup_descriptor"
         android:icon="@mipmap/ic_launcher"
         android:label="InvesmentHandle"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:ignore="GoogleAppIndexingWarning"
-        android:fullBackupContent="@xml/backup_descriptor">
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".SavedPolicyList"></activity>
         <activity android:name=".LoginActivity">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-        <activity android:name="hardik.invesmenthandle.com.RdActivity" />
-        <activity android:name="hardik.invesmenthandle.com.InfoActivity" />
-        <activity android:name="hardik.invesmenthandle.com.BankfdActivity" />
-        <activity android:name="hardik.invesmenthandle.com.policyActivity" />
-        <activity android:name="hardik.invesmenthandle.com.RegisterActivity" />
-        <activity android:name="hardik.invesmenthandle.com.activities.UsersListActivity" />
-        <activity android:name="hardik.invesmenthandle.com.Dashbord" />
-        <activity android:name="hardik.invesmenthandle.com.MainActivity" />
+        <activity android:name=".RdActivity" />
+        <activity android:name=".InfoActivity" />
+        <activity android:name=".BankfdActivity" />
+        <activity android:name=".policyActivity" />
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".activities.UsersListActivity" />
+        <activity android:name=".Dashbord" />
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>
